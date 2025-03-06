@@ -10,11 +10,16 @@ import type { DirectoryProfile, TemplateProps } from "src/types/entities";
 export const getPath: GetPath<TemplateProps<DirectoryProfile<never>>> = (
   data
 ) => {
-  // slugが存在する場合はそれを使用
-  if (data.document.slug) {
+  // slugが存在し、かつテンプレート形式（[[...]]）でない場合はそれを使用
+  if (data.document.slug && !data.document.slug.includes("[[")) {
     return data.document.slug;
   }
   
-  // slugが存在しない場合はIDを文字列化してパスにする
-  return `region-${data.document.id}`;
+  // slugがない場合やテンプレート形式の場合、ID + 名前を使用してパスを生成
+  let slugifiedName = "";
+  if (data.document.name) {
+    slugifiedName = `-${data.document.name.toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, "-")}`;
+  }
+  
+  return `region-${data.document.id}${slugifiedName}`;
 };
