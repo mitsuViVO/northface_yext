@@ -12,22 +12,8 @@ export function SchemaBuilder(
       }
     : null;
 
-  const breadcrumbs = data.document.dm_directoryParents
-    ? (
-        data.document.dm_directoryParents as Array<{
-          slug: string;
-          name: string;
-        }>
-      ).map((parent, idx) => ({
-        "@type": "ListItem",
-        name: parent.name,
-        position: idx + 1,
-        item: {
-          "@type": "Thing",
-          "@id": data.relativePrefixToRoot + parent.slug,
-        },
-      }))
-    : null;
+  // ディレクトリ親参照を削除
+  const breadcrumbs = null;
 
   const faqs = data.document.c_faqSection?.faqs
     ? FAQPage(data.document.c_faqSection.faqs)

@@ -187,13 +187,7 @@ function metaDescription(data: TemplateRenderProps): string {
   const { c_meta: entityMeta } = data.document;
   if (entityMeta?.description) return entityMeta.description;
 
-  // 2. Check for breadcrumbs
-  const { dm_directoryParents } = data.document;
-  if (dm_directoryParents) {
-    return `${dm_directoryParents
-      .map((crumb: { name: string }) => crumb.name)
-      .join(", ")}.`;
-  }
+  // ディレクトリ親参照を削除
 
   return "";
 }
