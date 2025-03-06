@@ -9,5 +9,17 @@ import type { TemplateProps } from "src/types/entities";
  * take on the form: featureName/entityId
  */
 export const getPath: GetPath<TemplateProps<LocationProfile>> = (data) => {
-  return data.document.slug;
+  // slugが存在し、かつテンプレート形式（[[...]]）でない場合はそれを使用
+  if (data.document.slug && !data.document.slug.includes("[[")) {
+    return data.document.slug;
+  }
+  
+  // slugがない場合やテンプレート形式の場合、ID + 名前を使用してパスを生成
+  // 名前がある場合はスラッグ化して使用（空白をハイフンに、特殊文字を削除）
+  let slugifiedName = "";
+  if (data.document.name) {
+    slugifiedName = `-${data.document.name.toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, "-")}`;
+  }
+  
+  return `location-${data.document.id}${slugifiedName}`;
 };
