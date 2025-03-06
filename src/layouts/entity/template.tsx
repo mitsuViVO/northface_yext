@@ -55,7 +55,6 @@ const EntityLayout = ({ data }: EntityLayoutProps) => {
     c_eventsSection: events,
     c_insightsSection: insights,
     c_reviewsSection: reviews,
-    dm_directoryParents: directoryParents,
   } = data.document;
 
   const showBanner = banner?.text && banner?.image;
@@ -77,7 +76,7 @@ const EntityLayout = ({ data }: EntityLayoutProps) => {
       )}
       <ErrorBoundaryWithAnalytics name="breadcrumbs">
         <Breadcrumbs
-          breadcrumbs={directoryParents || []}
+          breadcrumbs={[]}
           separator="/"
           className="container"
         />

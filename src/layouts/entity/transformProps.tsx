@@ -23,11 +23,10 @@ export const transformProps: TransformProps<
     localPhone,
     alternatePhone,
     address,
-    dm_directoryParents,
     name,
   } = data.document;
 
-  (dm_directoryParents || []).push({ name: name, slug: "" });
+  // ディレクトリ親参照を削除
 
   const translations = await getTranslations(data.document.locale);
 
@@ -42,7 +41,6 @@ export const transformProps: TransformProps<
       ttyPhone: formatPhone(ttyPhone, address.countryCode),
       localPhone: formatPhone(localPhone, address.countryCode),
       alternatePhone: formatPhone(alternatePhone, address.countryCode),
-      dm_directoryParents: dm_directoryParents,
     },
     translations,
   };
