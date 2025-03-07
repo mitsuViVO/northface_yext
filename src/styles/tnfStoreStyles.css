@@ -1,0 +1,153 @@
+/* THE NORTH FACE店舗ページ用スタイル変数 */
+
+:root {
+  /* カラー変数 */
+  --tnf-black: #000000;
+  --tnf-white: #FFFFFF;
+  
+  /* グレースケール */
+  --tnf-gray-100: #F8F9FA;
+  --tnf-gray-200: #E9ECEF;
+  --tnf-gray-300: #DEE2E6;
+  --tnf-gray-400: #CED4DA;
+  --tnf-gray-500: #ADB5BD;
+  --tnf-gray-600: #6C757D;
+  --tnf-gray-700: #495057;
+  --tnf-gray-800: #343A40;
+  --tnf-gray-900: #212529;
+  
+  /* フォント */
+  --tnf-font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", 'Yu Gothic', "メイリオ", "Meiryo", "Avenir Next", "Avenir", Helvetica, Arial, sans-serif;
+  --tnf-font-size-xs: 10px;
+  --tnf-font-size-sm: 12px;
+  --tnf-font-size-md: 14px;
+  --tnf-font-size-lg: 16px;
+  --tnf-font-size-xl: 18px;
+  --tnf-font-size-2xl: 24px;
+  --tnf-font-size-3xl: 28px;
+  
+  /* スペーシング */
+  --tnf-spacing-xs: 5px;
+  --tnf-spacing-sm: 10px;
+  --tnf-spacing-md: 15px;
+  --tnf-spacing-lg: 20px;
+  --tnf-spacing-xl: 30px;
+  --tnf-spacing-2xl: 40px;
+  --tnf-spacing-3xl: 60px;
+  
+  /* トランジション */
+  --tnf-transition-fast: 0.2s ease;
+  --tnf-transition-normal: 0.3s ease;
+  --tnf-transition-slow: 0.5s ease;
+  
+  /* シャドウ */
+  --tnf-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --tnf-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --tnf-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* ブレークポイント */
+  --tnf-breakpoint-sm: 767px;
+  --tnf-breakpoint-md: 1024px;
+  --tnf-breakpoint-lg: 1300px;
+}
+
+/* セクションタイトル共通スタイル */
+.tnf-section-title {
+  font-size: var(--tnf-font-size-3xl);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  letter-spacing: 0.05em;
+}
+
+.tnf-section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--tnf-black);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* もっと見るボタン共通スタイル */
+.tnf-more-btn {
+  text-align: center;
+  margin: 30px 0 10px;
+}
+
+.tnf-default-btn {
+  display: inline-block;
+  padding: 12px 40px;
+  border: 1px solid var(--tnf-black);
+  font-size: var(--tnf-font-size-md);
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--tnf-black);
+  background-color: var(--tnf-white);
+  transition: all var(--tnf-transition-normal);
+  letter-spacing: 0.05em;
+}
+
+.tnf-default-btn:hover {
+  background-color: var(--tnf-black);
+  color: var(--tnf-white);
+}
+
+/* ローディングスピナー共通スタイル */
+.tnf-loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.tnf-spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--tnf-black);
+  animation: tnfSpin 1s linear infinite;
+}
+
+@keyframes tnfSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* フェードインアニメーション */
+@keyframes tnfFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 共通レイアウト */
+.tnf-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .tnf-section-title {
+    font-size: var(--tnf-font-size-2xl);
+  }
+}
+
+@media (max-width: 767px) {
+  .tnf-section-title {
+    font-size: var(--tnf-font-size-xl);
+  }
+  
+  .tnf-default-btn {
+    padding: 10px 30px;
+  }
+  
+  .tnf-container {
+    padding: 0 15px;
+  }
+}

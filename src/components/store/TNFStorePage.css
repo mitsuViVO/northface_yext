@@ -1,0 +1,68 @@
+/* TNFStorePage.css - テスト用ページスタイル */
+
+.tnf-store-page {
+  padding: 20px 0 60px;
+  font-family: var(--tnf-font-family);
+}
+
+.tnf-breadcrumbs {
+  padding: 10px 0;
+  background-color: var(--tnf-gray-100);
+  margin-bottom: 20px;
+}
+
+.breadcrumbs-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.breadcrumbs-list li {
+  font-size: var(--tnf-font-size-sm);
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs-list li a {
+  color: var(--tnf-gray-700);
+  text-decoration: none;
+  transition: color var(--tnf-transition-fast);
+}
+
+.breadcrumbs-list li a:hover {
+  color: var(--tnf-black);
+  text-decoration: underline;
+}
+
+.breadcrumbs-list li span {
+  margin: 0 5px;
+  color: var(--tnf-gray-600);
+}
+
+.breadcrumbs-list li:last-child span {
+  font-weight: var(--tnf-font-bold);
+  color: var(--tnf-black);
+}
+
+/* グローバルスタイルのオーバーライド */
+.tnf-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (max-width: 767px) {
+  .tnf-store-page {
+    padding: 10px 0 40px;
+  }
+  
+  .tnf-breadcrumbs {
+    padding: 8px 0;
+    margin-bottom: 15px;
+  }
+  
+  .breadcrumbs-list li {
+    font-size: 10px;
+  }
+}
