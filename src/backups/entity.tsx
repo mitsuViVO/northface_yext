@@ -8,6 +8,7 @@
  * template for every eligible entity in your Knowledge Graph.
  */
 
+/*
 export { getPath } from "src/layouts/entity/getPath";
 export { transformProps } from "src/layouts/entity/transformProps";
 export { getHeadConfig } from "src/layouts/entity/getHeadConfig";
@@ -25,3 +26,4 @@ const Entity: Template<TemplateRenderProps<LocationProfile>> = (data) => (
 );
 
 export default Entity;
+*/
